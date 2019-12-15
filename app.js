@@ -1,31 +1,32 @@
-const express = require('express');
-const bodyParser = require('body-parser');
+const express = require("express");
+const bodyParser = require("body-parser");
 const app = express();
-const mongoose = require('mongoose');
-const cors = require('cors');
-require('dotenv/config');
+const mongoose = require("mongoose");
+const cors = require("cors");
+require("dotenv/config");
 
 //Middlewares
 app.use(bodyParser.json());
 app.use(cors());
- 
+
+app.use(express.urlencoded());
+
 //Import Routes
-const moviesRoute = require('./routes/movies');
-app.use('/movies', moviesRoute);
+const moviesRoute = require("./routes/movies");
+app.use("/movies", moviesRoute);
 
 //  include a static file serving middleware
-app.use(express.static(__dirname + '/'));
-
-//ROUTES
-app.get('/' , (req,res) => {
-    res.send('we are on home');
-})
+app.use(express.static(__dirname + "/"));
 
 // Get all Data
-app.get('/data', function(req,res){
-    res.sendfile('index.html');
-   }); 
+app.get("/data", function(req, res) {
+  res.sendfile("index.html");
+});
 
+// Insert new Movie
+app.get("/insertNewMovie", function(req, res) {
+  res.sendfile(__dirname + "/insert.html");
+});
 
 //Connect to DB
 
@@ -39,7 +40,7 @@ app.get('/data', function(req,res){
 //});
 
 //for local database
-mongoose.connect('mongodb://localhost:27017/testDB', {useNewUrlParser: true});
+mongoose.connect("mongodb://localhost:27017/testDB", { useNewUrlParser: true });
 
 //Listening to the server on port 3000
 app.listen(3000);

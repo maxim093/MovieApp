@@ -1,4 +1,16 @@
-.form{
-    display: flex;
-    
+.form {
+  display: flex;
+}
+
+.backButtonForm {
+  position: absolute;
+  right: 0px;
+}
+
+.btnSubmit {
+  position: absolute;
+}
+
+.btnNewMovie {
+  margin: 5px;
 }
