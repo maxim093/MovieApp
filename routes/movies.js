@@ -32,11 +32,11 @@ router.post("/insertMovie", async (req, res) => {
 });
 
 //specific Movie
-router.get("/search/:title", async (req, res) => {
+router.get("/:title", async (req, res) => {
   try {
-    const movie = await Movie.find({ title: req.params.title });
-    res.json(movie);
-    console.log(movie);
+    const movie = await Movie.find({ title: req.query.title });
+
+    res.sendfile("/specificMovie.html", { root: "./" });
   } catch (err) {
     res.json({ message: err });
   }

@@ -8,7 +8,6 @@ require("dotenv/config");
 //Middlewares
 app.use(bodyParser.json());
 app.use(cors());
-
 app.use(express.urlencoded());
 
 //Import Routes
@@ -23,11 +22,10 @@ app.get("/insertNewMovie", function(req, res) {
   res.sendfile(__dirname + "/insertMovie.html");
 });
 
-// Show specific Movie
-
-app.get("/search/", function(req, res) {
-  res.sendfile("specificMovie.html");
-});
+// /Movies kann nicht verlinkt werden
+//app.get("/title/:title", function(req, res) {
+//  res.sendfile(__dirname + "/specificMovie.html");
+//});
 
 //Connect to DB
 
