@@ -17,23 +17,26 @@ router.post("/insertMovie", async (req, res) => {
   const movie = new Movie({
     title: req.body.title,
     description: req.body.description,
-    start: req.body.start
+    start: req.body.start,
+    currentlyRunning: req.body.currentlyRunning,
+    thumbnail: req.body.thumbnail
   });
 
   try {
     const savedMovie = await movie.save();
-    res.json(savedMovie);
-    res.redirect("/insertNewMovie");
+    res.json("Speichern erfolgreich!");
+    // res.json(savedMovie);
   } catch (err) {
     res.json({ message: err });
   }
 });
 
 //specific Movie
-router.get("/:movieId", async (req, res) => {
+router.get("/search/:title", async (req, res) => {
   try {
-    const movie = await Movie.findById(req.params.movieId);
+    const movie = await Movie.find({ title: req.params.title });
     res.json(movie);
+    console.log(movie);
   } catch (err) {
     res.json({ message: err });
   }

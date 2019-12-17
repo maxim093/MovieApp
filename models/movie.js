@@ -24,6 +24,10 @@ const MovieSchema = mongoose.Schema({
   currentlyRunning: {
     type: Boolean,
     default: false
+  },
+  thumbnail: {
+    type: String,
+    required: true
   }
 });
 

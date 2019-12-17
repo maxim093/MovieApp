@@ -18,14 +18,15 @@ app.use("/movies", moviesRoute);
 //  include a static file serving middleware
 app.use(express.static(__dirname + "/"));
 
-// Get all Data
-app.get("/data", function(req, res) {
-  res.sendfile("index.html");
-});
-
 // Insert new Movie
 app.get("/insertNewMovie", function(req, res) {
-  res.sendfile(__dirname + "/insert.html");
+  res.sendfile(__dirname + "/insertMovie.html");
+});
+
+// Show specific Movie
+
+app.get("/search/", function(req, res) {
+  res.sendfile("specificMovie.html");
 });
 
 //Connect to DB

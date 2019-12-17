@@ -14,14 +14,16 @@ fetch("http://localhost:3000/movies")
       let wochenDifferenz = tagDifferenz / 7;
       let differenzGerundet = wochenDifferenz.toFixed(0).substr(1);
 
-      console.log(startDate.toLocaleDateString("de-DE"));
-
       html += `<tr>
             <td>${movie._id} </td>
             <td>${movie.title}</td>
             <td>${movie.description}</td>
             <td>${startDate.toLocaleDateString("de-DE")}</td>
-            <td>${differenzGerundet}</td>
+            <td>${
+              movie.currentlyRunning === false
+                ? (differenzGerundet = 0)
+                : differenzGerundet
+            }</td>
             <td>${movie.date}</td>
             <td>${movie.currentlyRunning}
         </tr>`;
