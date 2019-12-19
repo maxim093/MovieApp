@@ -5,6 +5,8 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 require("dotenv/config");
 
+app.set("view engine", "pug");
+
 //Middlewares
 app.use(bodyParser.json());
 app.use(cors());
@@ -21,11 +23,6 @@ app.use(express.static(__dirname + "/"));
 app.get("/insertNewMovie", function(req, res) {
   res.sendfile(__dirname + "/insertMovie.html");
 });
-
-// /Movies kann nicht verlinkt werden
-//app.get("/title/:title", function(req, res) {
-//  res.sendfile(__dirname + "/specificMovie.html");
-//});
 
 //Connect to DB
 

@@ -34,9 +34,16 @@ router.post("/insertMovie", async (req, res) => {
 //specific Movie
 router.get("/:title", async (req, res) => {
   try {
-    const movie = await Movie.find({ title: req.query.title });
+    const movie = await Movie.find({ title: req.params.title });
 
-    res.sendfile("/specificMovie.html", { root: "./" });
+    res.render("specificMovie", {
+      title: movie.map(x => {
+        return x.title;
+      }),
+      description: movie.map(x => {
+        return x.description;
+      })
+    });
   } catch (err) {
     res.json({ message: err });
   }

@@ -26,8 +26,8 @@
           </form>
         </div>
         <div class="col-sm ">
-          <form class="float-right" action="/movies/title/">
-            <input type="text" name="title" />
+          <form class="float-right" onSubmit="return doSearch()">
+            <input type="text" id="searchBtn" name="title" />
             <input
               type="submit"
               value="Suchen"
@@ -37,6 +37,14 @@
         </div>
       </div>
     </div>
+
+    <script>
+      function doSearch() {
+        const search = document.getElementById("searchBtn").value;
+        location.href = "/movies/" + search;
+        return false;
+      }
+    </script>
 
     <table class="table table-striped">
       <thead class="thead-dark">
