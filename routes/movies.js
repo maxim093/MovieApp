@@ -42,6 +42,18 @@ router.get("/:title", async (req, res) => {
       }),
       description: movie.map(x => {
         return x.description;
+      }),
+      start: movie.map(x => {
+        const date =
+          x.start.getDate() +
+          "." +
+          (x.start.getMonth() + 1) +
+          "." +
+          x.start.getFullYear();
+        return date;
+      }),
+      thumbnail: movie.map(x => {
+        return x.thumbnail;
       })
     });
   } catch (err) {
