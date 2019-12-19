@@ -14,3 +14,13 @@
 .btnNewMovie {
   margin: 5px;
 }
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.footerText {
+  font-size: 10px;
+}

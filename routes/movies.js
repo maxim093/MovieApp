@@ -15,7 +15,8 @@ router.get("/", async (req, res) => {
 //submits a new movie
 router.post("/insertMovie", async (req, res) => {
   const movie = new Movie({
-    title: req.body.title,
+    title: req.body.title.toUpperCase(),
+    genre: req.body.genre,
     description: req.body.description,
     start: req.body.start,
     currentlyRunning: req.body.currentlyRunning,
@@ -39,6 +40,9 @@ router.get("/:title", async (req, res) => {
     res.render("specificMovie", {
       title: movie.map(x => {
         return x.title;
+      }),
+      genre: movie.map(x => {
+        return x.genre;
       }),
       description: movie.map(x => {
         return x.description;

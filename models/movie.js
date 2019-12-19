@@ -5,6 +5,10 @@ const MovieSchema = mongoose.Schema({
     type: String,
     required: true
   },
+  genre: {
+    type: String,
+    required: true
+  },
   description: {
     type: String,
     required: true

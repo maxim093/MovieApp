@@ -25,6 +25,9 @@
             />
           </form>
         </div>
+        <div class="col-sm">
+          <h5 class="text-center pt-2">Alle Einträge</h5>
+        </div>
         <div class="col-sm ">
           <form class="float-right" onSubmit="return doSearch()">
             <input type="text" id="searchBtn" name="title" />
@@ -38,10 +41,11 @@
       </div>
     </div>
 
+    <!-- Search script-->
     <script>
       function doSearch() {
         const search = document.getElementById("searchBtn").value;
-        location.href = "/movies/" + search;
+        location.href = "/movies/" + search.toUpperCase();
         return false;
       }
     </script>
@@ -51,7 +55,7 @@
         <tr>
           <th scope="col">ID</th>
           <th scope="col">Titel</th>
-          <th scope="col">Beschreibung</th>
+          <th scope="col">Genre</th>
           <th scope="col">Startdatum</th>
           <th scope="col">Woche</th>
           <th scope="col">Erstellt am</th>
@@ -62,6 +66,14 @@
         <!--Database Output here -->
       </tbody>
     </table>
+
+    <div class="footer  bg-dark">
+      <div class="container-fluid">
+        <p class="text-center footerText text-white m-1">
+          Dominik Keiper | 2019
+        </p>
+      </div>
+    </div>
 
     <script src="mainPage.js"></script>
     <script

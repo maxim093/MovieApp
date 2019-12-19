@@ -17,7 +17,7 @@ fetch("http://localhost:3000/movies")
       html += `<tr>
             <td>${movie._id} </td>
             <td>${movie.title}</td>
-            <td>${movie.description}</td>
+            <td>${movie.genre}</td>
             <td>${startDate.toLocaleDateString("de-DE")}</td>
             <td>${
               movie.currentlyRunning === false
