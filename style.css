@@ -24,3 +24,11 @@
 .footerText {
   font-size: 10px;
 }
+
+.img-fluid {
+  max-width: max-content !important;
+}
+
+.lead {
+  font-size: 16px;
+}

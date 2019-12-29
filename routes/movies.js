@@ -35,7 +35,7 @@ router.post("/insertMovie", async (req, res) => {
 //specific Movie
 router.get("/:title", async (req, res) => {
   try {
-    const movie = await Movie.find({ title: req.params.title });
+    const movie = await Movie.find({ title: new RegExp(req.params.title) });
 
     res.render("specificMovie", {
       title: movie.map(x => {
@@ -57,6 +57,42 @@ router.get("/:title", async (req, res) => {
         return date;
       }),
       thumbnail: movie.map(x => {
+        return x.thumbnail;
+      }),
+      movie: movie.map(x => {
+        return x;
+      })
+    });
+  } catch (err) {
+    res.json({ message: err });
+  }
+});
+
+//Get back all movies in Overlay
+router.get("/all", async (req, res) => {
+  try {
+    const movies = await Movie.find();
+
+    res.render("allMovies", {
+      title: movies.map(x => {
+        return x.title;
+      }),
+      genre: movies.map(x => {
+        return x.genre;
+      }),
+      description: movies.map(x => {
+        return x.description;
+      }),
+      start: movies.map(x => {
+        const date =
+          x.start.getDate() +
+          "." +
+          (x.start.getMonth() + 1) +
+          "." +
+          x.start.getFullYear();
+        return date;
+      }),
+      thumbnail: movies.map(x => {
         return x.thumbnail;
       })
     });

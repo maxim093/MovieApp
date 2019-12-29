@@ -45,8 +45,13 @@
     <script>
       function doSearch() {
         const search = document.getElementById("searchBtn").value;
-        location.href = "/movies/" + search.toUpperCase();
-        return false;
+        if (search.length === 0) {
+          location.href = "/movies/all";
+          return false;
+        } else {
+          location.href = "/movies/" + search.toUpperCase();
+          return false;
+        }
       }
     </script>
 
