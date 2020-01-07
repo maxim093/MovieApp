@@ -28,3 +28,13 @@
 .lead {
   font-size: 16px;
 }
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.link {
+  display: contents;
+  color: #000;
+  text-decoration: none !important;
+}
